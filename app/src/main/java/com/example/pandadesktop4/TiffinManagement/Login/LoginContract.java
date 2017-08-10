@@ -11,14 +11,13 @@ public interface LoginContract {
     {
 
 
-
+        LoginRequest getLoginRequest();
 
     }
     interface Model
     {
 
 
-
-
+        void requestLoginToServer(LoginRequest loginRequest);
     }
 }

@@ -20,11 +20,12 @@ public class LoginActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-
-
         LoginFragment fragment= new LoginFragment();
         initFragment(fragment);
+
+        LoginModel model = new LoginModel();
+
+        LoginPresenter presenter = new LoginPresenter(fragment,model);
 
     }
 

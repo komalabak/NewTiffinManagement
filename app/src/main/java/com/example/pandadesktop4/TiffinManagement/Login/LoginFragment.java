@@ -35,4 +35,8 @@ public class LoginFragment extends Fragment implements LoginContract.View {
         passwordText = (EditText) contentView.findViewById(R.id.password_editText);
     }
 
+    @Override
+    public LoginRequest getLoginRequest() {
+        return null;
+    }
 }

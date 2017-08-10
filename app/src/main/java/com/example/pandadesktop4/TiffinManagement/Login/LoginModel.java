@@ -7,7 +7,8 @@ package com.example.pandadesktop4.TiffinManagement.Login;
 public class LoginModel implements LoginContract.Model {
 
 
+    @Override
+    public void requestLoginToServer(LoginRequest loginRequest) {
 
-
-
+    }
 }
