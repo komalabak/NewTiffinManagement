@@ -6,5 +6,5 @@ package com.example.pandadesktop4.TiffinManagement;
 
 public interface Executor {
 
-    public abstract void run ();
+    public abstract void run_me ();
 }

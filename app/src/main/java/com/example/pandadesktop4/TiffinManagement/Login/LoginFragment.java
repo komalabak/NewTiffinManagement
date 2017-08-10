@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.pandadesktop4.TiffinManagement.Events;
 import com.example.pandadesktop4.TiffinManagement.Executor;
 import com.example.pandadesktop4.TiffinManagement.R;
 
@@ -31,7 +32,17 @@ public class LoginFragment extends Fragment implements LoginContract.View {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         bindViews(view);
+        initializeViews();
         return view;
+    }
+
+    private void initializeViews() {
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Events.fire(onLoginButtonClicked);
+            }
+        });
     }
 
     private void bindViews(View contentView) {
