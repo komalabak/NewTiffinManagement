@@ -9,7 +9,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.pandadesktop4.TiffinManagement.Executor;
 import com.example.pandadesktop4.TiffinManagement.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by pandadesktop4 on 10/8/17.
@@ -19,6 +23,7 @@ public class LoginFragment extends Fragment implements LoginContract.View {
 
     Button loginButton;
     EditText usernameText,passwordText;
+    List<Executor> onLoginButtonClicked = new ArrayList<>();
 
     @Nullable
     @Override
@@ -38,5 +43,10 @@ public class LoginFragment extends Fragment implements LoginContract.View {
     @Override
     public LoginRequest getLoginRequest() {
         return null;
+    }
+
+    @Override
+    public void whenLoginButtonClick(Executor executor) {
+        onLoginButtonClicked.add(executor);
     }
 }
