@@ -8,5 +8,5 @@ import retrofit.http.POST;
 
 public interface LoginAPI {
     @POST("/login")
-    public void login(@Body LoginRequest loginRequest, Callback<ServerResponse> response);
+    public void login(@Body LoginRequest loginRequest, Callback<LoginResponse> response);
 }

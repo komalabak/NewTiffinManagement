@@ -1,13 +1,16 @@
 package com.example.pandadesktop4.TiffinManagement.Login;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.pandadesktop4.TiffinManagement.Events;
 import com.example.pandadesktop4.TiffinManagement.Executor;
@@ -25,6 +28,8 @@ public class LoginFragment extends Fragment implements LoginContract.View {
     Button loginButton;
     EditText usernameText,passwordText;
     List<Executor> onLoginButtonClicked = new ArrayList<>();
+    private Context applicationContext;
+
 
     @Nullable
     @Override
@@ -41,6 +46,7 @@ public class LoginFragment extends Fragment implements LoginContract.View {
             @Override
             public void onClick(View view) {
                 Events.fire(onLoginButtonClicked);
+
             }
         });
     }
@@ -58,6 +64,22 @@ public class LoginFragment extends Fragment implements LoginContract.View {
 
     @Override
     public void whenLoginButtonClick(Executor executor) {
+
         onLoginButtonClicked.add(executor);
     }
+
+    @Override
+    public void saveAndLaunchHomeScreen(LoginResponse loginResponse) {
+        Log.i("ABC", "Going to Next Screen");
+
+//        Intent i = new Intent(getActivity(), MakeEntry.class);
+//        startActivity(i);
+    }
+
+    @Override
+    public void showLoginFailure() {
+        Toast.makeText(getActivity(), "Username or password incorrect.", Toast.LENGTH_SHORT).show();
+
+    }
+
 }

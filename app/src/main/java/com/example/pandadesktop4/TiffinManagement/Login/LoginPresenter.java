@@ -9,7 +9,11 @@ public class LoginPresenter {
 
     public LoginPresenter(LoginContract.View view, final LoginContract.Model model)
     {
-      view.whenLoginButtonClick(()-> model.requestLoginToServer(view.getLoginRequest()));
+
+          view.whenLoginButtonClick(()-> model.requestLoginToServer(view.getLoginRequest()));
+
+          model.whenLoginSuccess(()->view.saveAndLaunchHomeScreen(model.getLoginResponse()));
+          model.whenLoginFailure(view::showLoginFailure);
 
     }
 

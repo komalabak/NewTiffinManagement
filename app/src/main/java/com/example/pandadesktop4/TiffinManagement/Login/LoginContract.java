@@ -12,15 +12,25 @@ public interface LoginContract {
     interface View
     {
 
-
         LoginRequest getLoginRequest();
 
         void whenLoginButtonClick(Executor executor);
+
+        void saveAndLaunchHomeScreen(LoginResponse loginResponse);
+
+        void showLoginFailure();
+
     }
+    
     interface Model
     {
-
-
+        
         void requestLoginToServer(LoginRequest loginRequest);
+
+        LoginResponse getLoginResponse();
+
+        void whenLoginSuccess(Executor executor);
+
+        void whenLoginFailure(Executor executor);
     }
 }

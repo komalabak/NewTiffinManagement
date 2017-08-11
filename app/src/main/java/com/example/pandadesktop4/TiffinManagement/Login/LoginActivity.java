@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.pandadesktop4.TiffinManagement.R;
+import com.example.pandadesktop4.TiffinManagement.RestClient;
 
 public class LoginActivity extends AppCompatActivity  {
 
@@ -23,9 +24,12 @@ public class LoginActivity extends AppCompatActivity  {
         LoginFragment fragment= new LoginFragment();
         initFragment(fragment);
 
-        LoginModel model = new LoginModel();
+        LoginAPI loginAPI = RestClient.getRestAdapter().create(LoginAPI.class);
+        LoginModel model = new LoginModel(loginAPI);
 
         LoginPresenter presenter = new LoginPresenter(fragment,model);
+
+
 
     }
 
